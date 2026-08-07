@@ -1,0 +1,11 @@
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Dependencias e builds (caso use futuramente)
+node_modules/
+dist/
+build/
+
+# Chaves e configuracoes locais
+.env
