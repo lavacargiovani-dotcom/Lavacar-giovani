@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lavacar Giovani — Estética Automotiva Premium</title>
+<meta name="description" content="Lavacar Giovani: lavagem completa, polimento técnico, higienização interna e vitrificação. Cuidado premium para o seu carro.">
+<style>
+  :root{
+    --navy: #0f2436;
+    --navy-2: #16324a;
+    --graphite: #1b222b;
+    --off-white: #f5f7f9;
+    --white: #ffffff;
+    --line: #e2e6ea;
+    --text: #26313c;
+    --text-soft: #5b6874;
+    --teal: #2fa187;
+    --teal-dark: #24816c;
+    --blue: #4a92c2;
+    --shadow: 0 18px 40px -22px rgba(15,36,54,0.35);
+    --radius: 6px;
+    --serif: Georgia, "Iowan Old Style", "Palatino Linotype", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    font-family: var(--sans);
+    color: var(--text);
+    background: var(--white);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  button{ font-family:inherit; cursor:pointer; }
+  h1,h2,h3,h4{
+    font-family: var(--serif);
+    font-weight: 700;
+    margin: 0;
+    color: var(--navy);
+    letter-spacing: -0.01em;
+  }
+  section{ padding: 88px 0; }
+  .container{
+    width: 100%;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+  .section-head{
+    max-width: 620px;
+    margin: 0 0 48px;
+  }
+  .section-head h2{ font-size: clamp(1.7rem, 3vw, 2.35rem); }
+  .section-head p{
+    color: var(--text-soft);
+    font-size: 1.05rem;
+    margin-top: 14px;
+  }
+  .section-head.center{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+  }
+
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+  }
+
+  /* Buttons */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding: 14px 26px;
+    border-radius: var(--radius);
+    font-size: 0.98rem;
+    font-weight: 600;
+    border: 1px solid transparent;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease, color .18s ease;
+    white-space: nowrap;
+  }
+  .btn-primary{
+    background: var(--teal);
+    color: var(--white);
+    box-shadow: 0 12px 24px -12px rgba(47,161,135,0.6);
+  }
+  .btn-primary:hover{ background: var(--teal-dark); transform: translateY(-1px); }
+  .btn-outline{
+    background: transparent;
+    border-color: rgba(255,255,255,0.4);
+    color: var(--white);
+  }
+  .btn-outline:hover{ background: rgba(255,255,255,0.12); }
+  .btn-ghost{
+    background: transparent;
+    border-color: var(--line);
+    color: var(--navy);
+  }
+  .btn-ghost:hover{ border-color: var(--navy); }
+  .btn-sm{ padding: 10px 18px; font-size: 0.9rem; }
+  .btn svg{ width:18px; height:18px; flex-shrink:0; }
+
+  /* Header */
+  header{
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid transparent;
+    transition: box-shadow .25s ease, border-color .25s ease;
+  }
+  header.scrolled{
+    box-shadow: 0 6px 24px -18px rgba(15,36,54,0.5);
+    border-bottom-color: var(--line);
+  }
+  .nav-wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding: 16px 28px;
+    max-width: 1180px;
+    margin: 0 auto;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family: var(--serif);
+    font-size: 1.32rem;
+    font-weight:700;
+    color: var(--navy);
+  }
+  .logo .mark{
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    background: var(--navy);
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .logo .mark svg{ width:20px; height:20px; }
+  .logo small{
+    display:block;
+    font-family: var(--sans);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    color: var(--teal-dark);
+    margin-top: 2px;
+  }
+  nav.main-nav ul{
+    display:flex;
+    gap: 34px;
+  }
+  nav.main-nav a{
+    font-size: 0.96rem;
+    font-weight: 500;
+    color: var(--text);
+    position: relative;
+    padding: 4px 0;
+  }
+  nav.main-nav a::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:-4px;
+    height:2px;
+    background: var(--teal);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .2s ease;
+  }
+  nav.main-nav a:hover::after{ transform: scaleX(1); }
+  .header-actions{ display:flex; align-items:center; gap:22px; }
+  .burger{
+    display:none;
+    width: 40px; height: 40px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--white);
+    align-items:center;
+    justify-content:center;
+  }
+  .burger span, .burger span::before, .burger span::after{
+    content:"";
+    display:block;
+    width: 18px; height: 2px;
+    background: var(--navy);
+    position: relative;
+    transition: transform .2s ease, opacity .2s ease;
+  }
+  .burger span::before{ position:absolute; top:-6px; }
+  .burger span::after{ position:absolute; top:6px; }
+  .burger.open span{ background: transparent; }
+  .burger.open span::before{ transform: translateY(6px) rotate(45deg); }
+  .burger.open span::after{ transform: translateY(-6px) rotate(-45deg); }
+
+  /* Hero */
+  .hero{
+    background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+    padding: 64px 0 96px;
+  }
+  .hero .container{
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items:center;
+  }
+  .hero-eyebrow{
+    font-size: 0.9rem;
+    color: var(--teal-dark);
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .hero h1{
+    font-size: clamp(2.2rem, 4.4vw, 3.4rem);
+    line-height: 1.12;
+  }
+  .hero h1 em{ font-style: italic; color: var(--teal-dark); }
+  .hero p.lead{
+    font-size: 1.12rem;
+    color: var(--text-soft);
+    margin: 22px 0 32px;
+    max-width: 480px;
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
+  .hero-stats{
+    display:flex;
+    gap: 40px;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-stats .stat b{
+    display:block;
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    color: var(--navy);
+  }
+  .hero-stats .stat span{
+    font-size: 0.85rem;
+    color: var(--text-soft);
+  }
+  .hero-media{ position: relative; }
+  .hero-media .frame{
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    aspect-ratio: 4 / 5;
+  }
+  .hero-media .frame img{ width:100%; height:100%; object-fit: cover; }
+  .hero-badge{
+    position:absolute;
+    left: -24px;
+    bottom: 32px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 18px 22px;
+    border-radius: var(--radius);
+    box-shadow: 0 20px 30px -18px rgba(15,36,54,0.5);
+    display:flex;
+    align-items:center;
+    gap: 12px;
+    max-width: 240px;
+  }
+  .hero-badge svg{ width:26px; height:26px; flex-shrink:0; color: var(--teal); }
+  .hero-badge strong{ display:block; font-size:0.95rem; }
+  .hero-badge span{ font-size:0.78rem; color: rgba(255,255,255,0.7); }
+
+  /* Diferenciais */
+  .why{ background: var(--navy); color: var(--white); }
+  .why .section-head h2{ color: var(--white); }
+  .why .section-head p{ color: rgba(255,255,255,0.68); }
+  .why-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    background: rgba(255,255,255,0.14);
+    border-radius: var(--radius);
+    overflow:hidden;
+  }
+  .why-card{
+    background: var(--navy-2);
+    padding: 34px 28px;
+    transition: background-color .2s ease;
+  }
+  .why-card:hover{ background: #1d3c56; }
+  .why-card .icon{
+    width: 46px; height:46px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.28);
+    display:flex; align-items:center; justify-content:center;
+    margin-bottom: 18px;
+  }
+  .why-card .icon svg{ width:22px; height:22px; color: var(--teal); }
+  .why-card h3{
+    color: var(--white);
+    font-size: 1.05rem;
+    font-family: var(--sans);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .why-card p{
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.65);
+    margin:0;
+  }
+
+  /* Serviços */
+  .services-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 26px;
+  }
+  .service-card{
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow:hidden;
+    background: var(--white);
+    transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .service-card:hover{
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+    border-color: transparent;
+  }
+  .service-card .thumb{ aspect-ratio: 4/3; overflow:hidden; }
+  .service-card .thumb img{ width:100%; height:100%; object-fit:cover; transition: transform .5s ease; }
+  .service-card:hover .thumb img{ transform: scale(1.06); }
+  .service-body{ padding: 22px 22px 24px; display:flex; flex-direction:column; flex:1; }
+  .service-body h3{ font-size: 1.12rem; margin-bottom: 8px; }
+  .service-body p.desc{ font-size: 0.92rem; color: var(--text-soft); flex:1; margin: 0 0 18px; }
+  .service-meta{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top: 16px;
+    border-top: 1px dashed var(--line);
+    margin-bottom: 18px;
+  }
+  .service-meta .time{
+    display:flex; align-items:center; gap:6px;
+    font-size: 0.82rem; color: var(--text-soft);
+  }
+  .service-meta .time svg{ width:15px; height:15px; }
+  .service-meta .price{
+    font-family: var(--serif);
+    font-weight:700;
+    color: var(--navy);
+    font-size: 1.02rem;
+  }
+  .service-card .btn{ justify-content:center; width:100%; }
+
+  /* Depoimentos */
+  .testimonials{ background: var(--off-white); }
+  .testi-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+  }
+  .testi-card{
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 30px 26px;
+  }
+  .stars{ display:flex; gap:3px; margin-bottom:16px; color: #d9a441; }
+  .stars svg{ width:16px; height:16px; }
+  .testi-card p.quote{
+    font-size: 0.98rem;
+    color: var(--text);
+    margin: 0 0 20px;
+  }
+  .testi-person{ display:flex; align-items:center; gap:12px; }
+  .testi-person .avatar{
+    width: 44px; height:44px; border-radius:50%;
+    overflow:hidden; flex-shrink:0;
+    border: 1px solid var(--line);
+  }
+  .testi-person .avatar img{ width:100%; height:100%; object-fit:cover; }
+  .testi-person strong{ display:block; font-size:0.92rem; color: var(--navy); }
+  .testi-person span{ font-size:0.8rem; color: var(--text-soft); }
+
+  /* Localização */
+  .location .container{
+    display:grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 56px;
+    align-items:stretch;
+  }
+  .loc-info{
+    background: var(--navy);
+    color: var(--white);
+    border-radius: var(--radius);
+    padding: 40px 36px;
+  }
+  .loc-info h2{ color: var(--white); font-size: 1.7rem; margin-bottom: 10px; }
+  .loc-info > p{ color: rgba(255,255,255,0.68); margin: 0 0 30px; font-size: 0.98rem; }
+  .loc-item{
+    display:flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(255,255,255,0.14);
+  }
+  .loc-item:first-of-type{ border-top:none; }
+  .loc-item svg{ width:20px; height:20px; color: var(--teal); flex-shrink:0; margin-top:2px; }
+  .loc-item strong{ display:block; font-size:0.92rem; margin-bottom:3px; }
+  .loc-item span, .loc-item div{ font-size: 0.88rem; color: rgba(255,255,255,0.68); line-height:1.6; }
+  .loc-item table{ border-collapse: collapse; }
+  .loc-item td{ padding: 1px 0; font-size:0.88rem; color: rgba(255,255,255,0.68); }
+  .loc-item td:first-child{ padding-right: 14px; color: rgba(255,255,255,0.9); }
+  .loc-info .btn{ margin-top: 28px; }
+  .map-frame{
+    border-radius: var(--radius);
+    overflow:hidden;
+    border: 1px solid var(--line);
+    min-height: 340px;
+  }
+  .map-frame iframe{ width:100%; height:100%; min-height:340px; border:0; display:block; }
+
+  /* Footer */
+  footer{ background: var(--graphite); color: rgba(255,255,255,0.7); padding: 64px 0 0; }
+  .footer-grid{
+    display:grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .footer-brand .logo{ color: var(--white); margin-bottom: 14px; }
+  .footer-brand .logo .mark{ background: var(--teal); }
+  .footer-brand p{ font-size: 0.9rem; max-width: 320px; color: rgba(255,255,255,0.55); }
+  .footer-social{ display:flex; gap: 12px; margin-top: 20px; }
+  .footer-social a{
+    width: 38px; height: 38px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    display:flex; align-items:center; justify-content:center;
+    transition: background-color .2s ease, border-color .2s ease;
+  }
+  .footer-social a:hover{ background: var(--teal); border-color: var(--teal); }
+  .footer-social svg{ width:16px; height:16px; color: var(--white); }
+  footer h4{
+    color: var(--white);
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    letter-spacing: 0.03em;
+    margin-bottom: 18px;
+  }
+  footer ul li{ margin-bottom: 12px; }
+  footer ul a{ font-size: 0.9rem; color: rgba(255,255,255,0.6); transition: color .2s ease; }
+  footer ul a:hover{ color: var(--white); }
+  .footer-bottom{
+    padding: 22px 0 28px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 12px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* Whatsapp floating button */
+  .wa-float{
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 998;
+    width: 58px; height: 58px;
+    border-radius: 50%;
+    background: var(--teal);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 14px 30px -10px rgba(47,161,135,0.7);
+    transition: transform .2s ease;
+  }
+  .wa-float:hover{ transform: scale(1.07); }
+  .wa-float svg{ width:28px; height:28px; color: var(--white); }
+
+  /* Mobile nav panel */
+  .mobile-panel{
+    display:none;
+    position: fixed;
+    inset: 0;
+    background: rgba(15,36,54,0.55);
+    z-index: 1200;
+    opacity:0;
+    pointer-events:none;
+    transition: opacity .25s ease;
+  }
+  .mobile-panel.open{ opacity:1; pointer-events:auto; }
+  .mobile-panel .sheet{
+    position: absolute;
+    top:0; right:0;
+    height:100%;
+    width: min(320px, 84%);
+    background: var(--white);
+    padding: 26px 26px 32px;
+    transform: translateX(100%);
+    transition: transform .3s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .mobile-panel.open .sheet{ transform: translateX(0); }
+  .mobile-panel .sheet-top{
+    display:flex; justify-content:space-between; align-items:center;
+    margin-bottom: 30px;
+  }
+  .mobile-panel .close-btn{
+    width:36px; height:36px; border-radius:50%;
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    background:none;
+  }
+  .mobile-panel .close-btn svg{ width:16px; height:16px; }
+  .mobile-panel nav ul{ display:flex; flex-direction:column; gap: 4px; }
+  .mobile-panel nav a{
+    display:block;
+    padding: 14px 4px;
+    font-size: 1.05rem;
+    font-weight:600;
+    color: var(--navy);
+    border-bottom: 1px solid var(--line);
+  }
+  .mobile-panel .btn{ margin-top: 26px; justify-content:center; }
+
+  @media (max-width: 980px){
+    .hero .container{ grid-template-columns: 1fr; }
+    .hero-media{ order:-1; max-width: 420px; margin: 0 auto; }
+    .hero-badge{ left: 14px; }
+    .why-grid{ grid-template-columns: repeat(2,1fr); }
+    .services-grid{ grid-template-columns: repeat(2,1fr); }
+    .testi-grid{ grid-template-columns: repeat(2,1fr); }
+    .location .container{ grid-template-columns: 1fr; }
+    .footer-grid{ grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 720px){
+    nav.main-nav, .header-actions .btn{ display:none; }
+    .burger{ display:flex; }
+    .mobile-panel{ display:block; }
+    section{ padding: 64px 0; }
+    .hero{ padding: 44px 0 64px; }
+    .why-grid{ grid-template-columns: 1fr; }
+    .services-grid{ grid-template-columns: 1fr; }
+    .testi-grid{ grid-template-columns: 1fr; }
+    .footer-grid{ grid-template-columns: 1fr; gap: 30px; }
+    .hero-stats{ gap: 26px; flex-wrap:wrap; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header id="site-header">
+  <div class="nav-wrap">
+    <a href="#inicio" class="logo">
+      <span class="mark">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 16.5L6.2 12.2C6.6 10.8 7.9 9.8 9.4 9.8H14.6C16.1 9.8 17.4 10.8 17.8 12.2L19 16.5" stroke="white" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16.5H20V19C20 19.5523 19.5523 20 19 20H18C17.4477 20 17 19.5523 17 19V18H7V19C7 19.5523 6.55228 20 6 20H5C4.44772 20 4 19.5523 4 19V16.5Z" stroke="white" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.1" fill="white"/><circle cx="16.5" cy="16.5" r="1.1" fill="white"/></svg>
+      </span>
+      <span>Lavacar Giovani<small>ESTÉTICA AUTOMOTIVA</small></span>
+    </a>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-primary btn-sm wa-link" data-msg="Olá! Gostaria de agendar um horário para lavar meu carro na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.62C8.76 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.27 20.92 6.78 19.06 4.92C17.2 3.06 14.68 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.84 19.02L7.54 18.84L4.43 19.66L5.27 16.63L5.07 16.31C4.26 15 3.82 13.47 3.82 11.91C3.82 7.38 7.51 3.69 12.05 3.69C14.25 3.69 16.31 4.55 17.86 6.1C19.41 7.66 20.27 9.71 20.26 11.91C20.26 16.45 16.57 20.15 12.04 20.15ZM16.53 13.98C16.29 13.86 15.1 13.27 14.87 13.19C14.65 13.11 14.48 13.07 14.32 13.31C14.16 13.55 13.68 14.11 13.54 14.27C13.4 14.43 13.25 14.45 13.01 14.33C12.77 14.21 11.99 13.95 11.06 13.13C10.34 12.49 9.85 11.7 9.71 11.46C9.57 11.22 9.69 11.09 9.81 10.97C9.92 10.86 10.06 10.68 10.18 10.54C10.3 10.4 10.34 10.29 10.42 10.13C10.5 9.97 10.46 9.83 10.4 9.71C10.34 9.59 9.85 8.4 9.65 7.91C9.45 7.44 9.24 7.5 9.09 7.49C8.94 7.48 8.78 7.48 8.62 7.48C8.46 7.48 8.2 7.54 7.98 7.78C7.76 8.02 7.13 8.61 7.13 9.8C7.13 10.99 8 12.13 8.12 12.29C8.24 12.45 9.85 14.93 12.31 15.98C12.9 16.23 13.36 16.38 13.72 16.49C14.31 16.68 14.85 16.65 15.28 16.59C15.76 16.52 16.75 15.99 16.95 15.41C17.15 14.83 17.15 14.33 17.09 14.23C17.03 14.13 16.87 14.07 16.63 13.95L16.53 13.98Z"/></svg>
+        Agendar no WhatsApp
+      </a>
+      <button class="burger" id="burgerBtn" aria-label="Abrir menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-panel" id="mobilePanel">
+  <div class="sheet">
+    <div class="sheet-top">
+      <span class="logo" style="font-size:1.1rem;">Lavacar Giovani</span>
+      <button class="close-btn" id="closePanelBtn" aria-label="Fechar menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#16324a" stroke-width="1.8"><path d="M6 6L18 18M18 6L6 18"/></svg>
+      </button>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#servicos">Serviços</a></li>
+        <li><a href="#sobre">Sobre Nós</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary wa-link" data-msg="Olá! Gostaria de agendar um horário para lavar meu carro na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">Agendar no WhatsApp</a>
+  </div>
+</div>
+
+<main>
+
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-text">
+        <div class="hero-eyebrow">Estética automotiva premium desde 2011</div>
+        <h1>Seu carro merece o cuidado de quem entende de <em>brilho de verdade</em>.</h1>
+        <p class="lead">Na Lavacar Giovani combinamos técnica, produtos de alta linha e atenção aos detalhes para proteger a pintura, o interior e o valor do seu veículo — em cada visita.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary wa-link" data-msg="Olá! Gostaria de agendar um horário para lavar meu carro na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.62C8.76 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.27 20.92 6.78 19.06 4.92C17.2 3.06 14.68 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.84 19.02L7.54 18.84L4.43 19.66L5.27 16.63L5.07 16.31C4.26 15 3.82 13.47 3.82 11.91C3.82 7.38 7.51 3.69 12.05 3.69C14.25 3.69 16.31 4.55 17.86 6.1C19.41 7.66 20.27 9.71 20.26 11.91C20.26 16.45 16.57 20.15 12.04 20.15ZM16.53 13.98C16.29 13.86 15.1 13.27 14.87 13.19C14.65 13.11 14.48 13.07 14.32 13.31C14.16 13.55 13.68 14.11 13.54 14.27C13.4 14.43 13.25 14.45 13.01 14.33C12.77 14.21 11.99 13.95 11.06 13.13C10.34 12.49 9.85 11.7 9.71 11.46C9.57 11.22 9.69 11.09 9.81 10.97C9.92 10.86 10.06 10.68 10.18 10.54C10.3 10.4 10.34 10.29 10.42 10.13C10.5 9.97 10.46 9.83 10.4 9.71C10.34 9.59 9.85 8.4 9.65 7.91C9.45 7.44 9.24 7.5 9.09 7.49C8.94 7.48 8.78 7.48 8.62 7.48C8.46 7.48 8.2 7.54 7.98 7.78C7.76 8.02 7.13 8.61 7.13 9.8C7.13 10.99 8 12.13 8.12 12.29C8.24 12.45 9.85 14.93 12.31 15.98C12.9 16.23 13.36 16.38 13.72 16.49C14.31 16.68 14.85 16.65 15.28 16.59C15.76 16.52 16.75 15.99 16.95 15.41C17.15 14.83 17.15 14.33 17.09 14.23C17.03 14.13 16.87 14.07 16.63 13.95L16.53 13.98Z"/></svg>
+            Agendar no WhatsApp
+          </a>
+          <a class="btn btn-ghost" href="#servicos">Ver serviços</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><b>13 anos</b><span>de experiência</span></div>
+          <div class="stat"><b>18 mil+</b><span>carros atendidos</span></div>
+          <div class="stat"><b>4,9/5</b><span>avaliação dos clientes</span></div>
+        </div>
+      </div>
+
+      <div class="hero-media">
+        <div class="frame">
+          <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=900&q=80" alt="Carro com pintura espelhada após polimento na Lavacar Giovani">
+        </div>
+        <div class="hero-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L19 6V11C19 15.4 15.9 19.4 12 21C8.1 19.4 5 15.4 5 11V6L12 3Z"/><path d="M9 12L11 14L15 10"/></svg>
+          <div><strong>Garantia de satisfação</strong><span>Ou refazemos sem custo</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why" id="sobre">
+    <div class="container">
+      <div class="section-head">
+        <h2>Por que escolher a Lavacar Giovani</h2>
+        <p>Confiança e cuidado premium, do primeiro contato até a entrega das chaves.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="3.2"/><path d="M5 20C5 16.5 8.1 14 12 14C15.9 14 19 16.5 19 20"/></svg></div>
+          <h3>Profissionais qualificados</h3>
+          <p>Equipe treinada em técnicas de estética automotiva, com atenção a cada detalhe do seu veículo.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3V21M5 8H3M21 8H19M6.5 4.5L5 3M17.5 4.5L19 3"/><path d="M12 3C9 6 7 9 7 13C7 16.9 9.2 20 12 21C14.8 20 17 16.9 17 13C17 9 15 6 12 3Z"/></svg></div>
+          <h3>Produtos de alta linha</h3>
+          <p>Ceras, ceramic coating e cosméticos selecionados que protegem a pintura sem agredir o veículo.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12L15 14"/></svg></div>
+          <h3>Atendimento rápido</h3>
+          <p>Processos organizados e agenda otimizada para devolver seu carro no horário combinado.</p>
+        </div>
+        <div class="why-card">
+          <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3L19 6V11C19 15.4 15.9 19.4 12 21C8.1 19.4 5 15.4 5 11V6L12 3Z"/><path d="M9 12L11 14L15 10"/></svg></div>
+          <h3>Garantia de satisfação</h3>
+          <p>Não ficou 100%? Refazemos o serviço sem custo adicional dentro do mesmo dia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos">
+    <div class="container">
+      <div class="section-head">
+        <h2>Nossos serviços</h2>
+        <p>Escolha o cuidado ideal para o seu momento — da manutenção semanal à proteção de longo prazo.</p>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=700&q=80" alt="Lavagem completa externa de veículo"></div>
+          <div class="service-body">
+            <h3>Lavagem Completa</h3>
+            <p class="desc">Lavagem externa e interna com produtos neutros, secagem cuidadosa e limpeza de rodas e vidros.</p>
+            <div class="service-meta">
+              <div class="time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12L15 14"/></svg>40–50 min</div>
+              <div class="price">A partir de R$ 60</div>
+            </div>
+            <a class="btn btn-ghost wa-link" data-msg="Olá! Gostaria de agendar uma Lavagem Completa na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">Consultar horário</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=700&q=80" alt="Polimento técnico removendo riscos da pintura"></div>
+          <div class="service-body">
+            <h3>Polimento Técnico</h3>
+            <p class="desc">Correção de riscos e opacidade da pintura, devolvendo profundidade e brilho espelhado.</p>
+            <div class="service-meta">
+              <div class="time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12L15 14"/></svg>3–4 horas</div>
+              <div class="price">Sob consulta</div>
+            </div>
+            <a class="btn btn-ghost wa-link" data-msg="Olá! Gostaria de consultar valores do Polimento Técnico na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">Consultar valor</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=700&q=80" alt="Higienização interna dos bancos do carro"></div>
+          <div class="service-body">
+            <h3>Higienização Interna</h3>
+            <p class="desc">Limpeza profunda de bancos, carpetes, painel e teto, com sanitização e eliminação de odores.</p>
+            <div class="service-meta">
+              <div class="time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12L15 14"/></svg>2–3 horas</div>
+              <div class="price">A partir de R$ 180</div>
+            </div>
+            <a class="btn btn-ghost wa-link" data-msg="Olá! Gostaria de agendar uma Higienização Interna na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">Consultar horário</a>
+          </div>
+        </div>
+
+        <div class="service-card">
+          <div class="thumb"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=700&q=80" alt="Aplicação de vitrificação na lataria do carro"></div>
+          <div class="service-body">
+            <h3>Vitrificação</h3>
+            <p class="desc">Camada de proteção cerâmica de longa duração contra sol, chuva ácida e microrriscos.</p>
+            <div class="service-meta">
+              <div class="time"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12L15 14"/></svg>1 dia útil</div>
+              <div class="price">Sob consulta</div>
+            </div>
+            <a class="btn btn-ghost wa-link" data-msg="Olá! Gostaria de consultar valores da Vitrificação na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">Consultar valor</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="depoimentos">
+    <div class="container">
+      <div class="section-head center">
+        <h2>O que os clientes dizem</h2>
+        <p>Prova de que cuidado e técnica constroem confiança.</p>
+      </div>
+      <div class="testi-grid">
+
+        <div class="testi-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+          </div>
+          <p class="quote">"Levei meu carro pra fazer o polimento e fiquei impressionado com o resultado. Parecia que tinha saído da concessionária."</p>
+          <div class="testi-person">
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=120&q=80" alt="Foto de Ricardo Almeida"></div>
+            <div><strong>Ricardo Almeida</strong><span>Honda Civic 2022</span></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+          </div>
+          <p class="quote">"A higienização interna resolveu o cheiro de mofo que eu já achava que não tinha mais jeito. Atendimento super atencioso."</p>
+          <div class="testi-person">
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="Foto de Camila Souza"></div>
+            <div><strong>Camila Souza</strong><span>Jeep Compass 2021</span></div>
+          </div>
+        </div>
+
+        <div class="testi-card">
+          <div class="stars">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.6 5.6 6.1.6-4.6 4.1 1.3 6-5.4-3.1-5.4 3.1 1.3-6-4.6-4.1 6.1-.6z"/></svg>
+          </div>
+          <p class="quote">"Vitrifiquei meu carro há 8 meses e a água ainda escorrega igual no primeiro dia. Valeu cada centavo."</p>
+          <div class="testi-person">
+            <div class="avatar"><img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="Foto de Fernando Costa"></div>
+            <div><strong>Fernando Costa</strong><span>Toyota Corolla 2023</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="location" id="contato">
+    <div class="container">
+      <div class="loc-info">
+        <h2>Venha nos visitar</h2>
+        <p>Estamos prontos para cuidar do seu carro com a atenção que ele merece.</p>
+
+        <div class="loc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21C12 21 19 14.5 19 9.5C19 5.4 15.9 2 12 2C8.1 2 5 5.4 5 9.5C5 14.5 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          <div><strong>Endereço</strong><span>R. Alfredo Nicolao da Silva, 554 — Lagoa, Gaspar/SC, 89110-000</span></div>
+        </div>
+
+        <div class="loc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12L15 14"/></svg>
+          <div>
+            <strong>Horário de funcionamento</strong>
+            <table>
+              <tr><td>Todos os dias</td><td>Aberto 24 horas</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="loc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5C4 4.5 4.4 4 5 4H8L10 9L7.5 10.5C8.5 12.7 10.3 14.5 12.5 15.5L14 13L19 15V18C19 18.6 18.5 19 18 19C10.3 19 4 12.7 4 5Z"/></svg>
+          <div><strong>Telefone / WhatsApp</strong><span>(47) 99280-5301</span></div>
+        </div>
+
+        <a class="btn btn-primary wa-link" data-msg="Olá! Gostaria de agendar um horário para lavar meu carro na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.62C8.76 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.27 20.92 6.78 19.06 4.92C17.2 3.06 14.68 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.84 19.02L7.54 18.84L4.43 19.66L5.27 16.63L5.07 16.31C4.26 15 3.82 13.47 3.82 11.91C3.82 7.38 7.51 3.69 12.05 3.69C14.25 3.69 16.31 4.55 17.86 6.1C19.41 7.66 20.27 9.71 20.26 11.91C20.26 16.45 16.57 20.15 12.04 20.15ZM16.53 13.98C16.29 13.86 15.1 13.27 14.87 13.19C14.65 13.11 14.48 13.07 14.32 13.31C14.16 13.55 13.68 14.11 13.54 14.27C13.4 14.43 13.25 14.45 13.01 14.33C12.77 14.21 11.99 13.95 11.06 13.13C10.34 12.49 9.85 11.7 9.71 11.46C9.57 11.22 9.69 11.09 9.81 10.97C9.92 10.86 10.06 10.68 10.18 10.54C10.3 10.4 10.34 10.29 10.42 10.13C10.5 9.97 10.46 9.83 10.4 9.71C10.34 9.59 9.85 8.4 9.65 7.91C9.45 7.44 9.24 7.5 9.09 7.49C8.94 7.48 8.78 7.48 8.62 7.48C8.46 7.48 8.2 7.54 7.98 7.78C7.76 8.02 7.13 8.61 7.13 9.8C7.13 10.99 8 12.13 8.12 12.29C8.24 12.45 9.85 14.93 12.31 15.98C12.9 16.23 13.36 16.38 13.72 16.49C14.31 16.68 14.85 16.65 15.28 16.59C15.76 16.52 16.75 15.99 16.95 15.41C17.15 14.83 17.15 14.33 17.09 14.23C17.03 14.13 16.87 14.07 16.63 13.95L16.53 13.98Z"/></svg>
+          Falar no WhatsApp
+        </a>
+      </div>
+
+      <div class="map-frame">
+        <iframe
+          src="https://www.google.com/maps?q=R.+Alfredo+Nicolao+da+Silva,+554,+Lagoa,+Gaspar,+SC,+89110-000&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Mapa da localização da Lavacar Giovani">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#inicio" class="logo">
+          <span class="mark">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 16.5L6.2 12.2C6.6 10.8 7.9 9.8 9.4 9.8H14.6C16.1 9.8 17.4 10.8 17.8 12.2L19 16.5" stroke="#0f2436" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 16.5H20V19C20 19.5523 19.5523 20 19 20H18C17.4477 20 17 19.5523 17 19V18H7V19C7 19.5523 6.55228 20 6 20H5C4.44772 20 4 19.5523 4 19V16.5Z" stroke="#0f2436" stroke-width="1.6" stroke-linejoin="round"/><circle cx="7.5" cy="16.5" r="1.1" fill="#0f2436"/><circle cx="16.5" cy="16.5" r="1.1" fill="#0f2436"/></svg>
+          </span>
+          Lavacar Giovani
+        </a>
+        <p>Estética automotiva premium: lavagem, polimento, higienização e vitrificação com cuidado de verdade.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram da Lavacar Giovani"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook da Lavacar Giovani"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 8.5H16V5.5H14C12.3 5.5 11 6.8 11 8.5V11H9V14H11V20H14V14H16L16.5 11H14V9C14 8.7 14.3 8.5 14 8.5Z"/></svg></a>
+          <a href="#" aria-label="WhatsApp da Lavacar Giovani"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.62C8.76 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 6.45 17.5 2 12.04 2Z" opacity="0"/><path d="M12.04 3.5C7.44 3.5 3.7 7.24 3.7 11.85C3.7 13.33 4.1 14.76 4.85 16L3.9 19.6L7.6 18.68C8.8 19.35 10.15 19.7 11.52 19.7L12.04 19.7C16.64 19.7 20.38 15.96 20.38 11.35C20.38 6.75 16.64 3.5 12.04 3.5Z" opacity="0"/><path d="M17 15.4C16.76 15.28 15.57 14.69 15.34 14.61C15.12 14.53 14.95 14.49 14.79 14.73C14.63 14.97 14.15 15.53 14.01 15.69C13.87 15.85 13.72 15.87 13.48 15.75C13.24 15.63 12.46 15.37 11.53 14.55C10.81 13.91 10.32 13.12 10.18 12.88C10.04 12.64 10.16 12.51 10.28 12.39C10.39 12.28 10.53 12.1 10.65 11.96C10.77 11.82 10.81 11.71 10.89 11.55C10.97 11.39 10.93 11.25 10.87 11.13C10.81 11.01 10.32 9.82 10.12 9.33C9.92 8.86 9.71 8.92 9.56 8.91C9.41 8.9 9.25 8.9 9.09 8.9C8.93 8.9 8.67 8.96 8.45 9.2C8.23 9.44 7.6 10.03 7.6 11.22C7.6 12.41 8.47 13.55 8.59 13.71C8.71 13.87 10.32 16.35 12.78 17.4C15.24 18.45 15.24 18.09 15.68 18.05C16.12 18.01 17.1 17.47 17.31 16.89C17.51 16.31 17.51 15.81 17.45 15.71C17.39 15.61 17.24 15.55 17 15.43V15.4Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <h4>Links rápidos</h4>
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre nós</a></li>
+          <li><a href="#depoimentos">Depoimentos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <ul>
+          <li>R. Alfredo Nicolao da Silva, 554 — Gaspar/SC</li>
+          <li>(47) 99280-5301</li>
+          <li>contato@lavacargiovani.com.br</li>
+          <li>Aberto 24 horas</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Lavacar Giovani. Todos os direitos reservados.</span>
+      <span>Feito com cuidado, do mesmo jeito que lavamos seu carro.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float wa-link" data-msg="Olá! Gostaria de agendar um horário para lavar meu carro na LAVACAR GIOVANI." href="#" target="_blank" rel="noopener" aria-label="Agendar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.31 20.62C8.76 21.41 10.38 21.82 12.04 21.82C17.5 21.82 21.95 17.37 21.95 11.91C21.95 9.27 20.92 6.78 19.06 4.92C17.2 3.06 14.68 2 12.04 2ZM12.04 20.15C10.56 20.15 9.11 19.76 7.84 19.02L7.54 18.84L4.43 19.66L5.27 16.63L5.07 16.31C4.26 15 3.82 13.47 3.82 11.91C3.82 7.38 7.51 3.69 12.05 3.69C14.25 3.69 16.31 4.55 17.86 6.1C19.41 7.66 20.27 9.71 20.26 11.91C20.26 16.45 16.57 20.15 12.04 20.15ZM16.53 13.98C16.29 13.86 15.1 13.27 14.87 13.19C14.65 13.11 14.48 13.07 14.32 13.31C14.16 13.55 13.68 14.11 13.54 14.27C13.4 14.43 13.25 14.45 13.01 14.33C12.77 14.21 11.99 13.95 11.06 13.13C10.34 12.49 9.85 11.7 9.71 11.46C9.57 11.22 9.69 11.09 9.81 10.97C9.92 10.86 10.06 10.68 10.18 10.54C10.3 10.4 10.34 10.29 10.42 10.13C10.5 9.97 10.46 9.83 10.4 9.71C10.34 9.59 9.85 8.4 9.65 7.91C9.45 7.44 9.24 7.5 9.09 7.49C8.94 7.48 8.78 7.48 8.62 7.48C8.46 7.48 8.2 7.54 7.98 7.78C7.76 8.02 7.13 8.61 7.13 9.8C7.13 10.99 8 12.13 8.12 12.29C8.24 12.45 9.85 14.93 12.31 15.98C12.9 16.23 13.36 16.38 13.72 16.49C14.31 16.68 14.85 16.65 15.28 16.59C15.76 16.52 16.75 15.99 16.95 15.41C17.15 14.83 17.15 14.33 17.09 14.23C17.03 14.13 16.87 14.07 16.63 13.95L16.53 13.98Z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  var WHATSAPP_NUMBER = "5547992805301";
+
+  // Build WhatsApp links dynamically from data-msg attributes
+  document.querySelectorAll(".wa-link").forEach(function(link){
+    var msg = link.getAttribute("data-msg") || "Olá! Gostaria de agendar um horário na LAVACAR GIOVANI.";
+    link.setAttribute("href", "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(msg));
+  });
+
+  // Header shadow on scroll
+  var header = document.getElementById("site-header");
+  function onScroll(){
+    if(window.scrollY > 12){
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Smooth scroll for in-page nav links (native CSS handles it; this closes mobile panel + accounts for header offset)
+  var headerOffset = function(){ return header.offsetHeight + 8; };
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    link.addEventListener("click", function(e){
+      var id = link.getAttribute("href");
+      if(id.length < 2) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      var top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset();
+      window.scrollTo({ top: top, behavior: "smooth" });
+      closePanel();
+    });
+  });
+
+  // Mobile menu
+  var burgerBtn = document.getElementById("burgerBtn");
+  var closeBtn = document.getElementById("closePanelBtn");
+  var panel = document.getElementById("mobilePanel");
+
+  function openPanel(){
+    panel.classList.add("open");
+    burgerBtn.classList.add("open");
+    document.body.style.overflow = "hidden";
+  }
+  function closePanel(){
+    panel.classList.remove("open");
+    burgerBtn.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  burgerBtn.addEventListener("click", function(){
+    panel.classList.contains("open") ? closePanel() : openPanel();
+  });
+  closeBtn.addEventListener("click", closePanel);
+  panel.addEventListener("click", function(e){
+    if(e.target === panel) closePanel();
+  });
+
+  // Footer year
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+})();
+</script>
+
+</body>
+</html>
